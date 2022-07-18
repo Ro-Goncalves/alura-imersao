@@ -13,6 +13,8 @@
 3. Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
    de configuração (p. ex, um arquivo .properties) ou uma variável de ambiente
 
+**FEITO**
+
 4. Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON
 
 de algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal.

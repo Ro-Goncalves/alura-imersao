@@ -9,11 +9,16 @@ import java.util.List;
 import java.util.Map;
 
 import sticker.common.util.JsonParser;
+import sticker.common.util.UtilProperties;
 
 public class App {
-	public static void main(String[] args) {			
-		//O início: fazer uma conexão http que busque os top 250 filmes
-		String url = "https://imdb-api.com/en/API/Top250Movies/k_5u7xg5da";
+	public static void main(String[] args) {		
+		UtilProperties properties = new UtilProperties();
+		properties.setApiKey("imdb_key");		
+		
+		String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();
+		
+		System.out.println(url);
 		URI uriClient = URI.create(url);
 		HttpClient client = HttpClient.newHttpClient();
 		
