@@ -15,6 +15,11 @@
 
 **FEITO**
 
-4. Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON
+4. Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON.
 
-de algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal.
+**FEITO**
+https://www.geeksforgeeks.org/parse-json-java/
+
+
+5. Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
+algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal.
