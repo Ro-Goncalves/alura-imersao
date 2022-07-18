@@ -23,3 +23,5 @@ https://www.geeksforgeeks.org/parse-json-java/
 
 5. Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
 algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal.
+   
+**FEITO**
