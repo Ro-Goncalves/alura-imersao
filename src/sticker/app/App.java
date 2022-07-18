@@ -18,7 +18,8 @@ public class App {
 		
 		String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();
 		
-		System.out.println(url);
+		url = "https://api.themoviedb.org/3/movie/top_rated?api_key=&language=pt-BR";		
+		
 		URI uriClient = URI.create(url);
 		HttpClient client = HttpClient.newHttpClient();
 		
@@ -30,16 +31,17 @@ public class App {
 			String responseBody = response.body();
 			JsonParser parser = new JsonParser();
 			List<Map<String, String>> filmes = parser.parse(responseBody);
+			System.out.println(filmes);
 			
-			for (Map<String, String> entry : filmes) {
-				String title = entry.get("title");
-				String image = entry.get("image");
-				String rating = entry.get("imDbRating");
+//			for (Map<String, String> entry : filmes) {
+//				String title = entry.get("title");
+//				String image = entry.get("image");
+//				String rating = entry.get("imDbRating");
+//				
+//				System.out.println("Titulo: " + title + " Rating: " + rating);
+//				System.out.println(" ");
 				
-				System.out.println("Titulo: " + title + " Rating: " + rating);
-				System.out.println(" ");
-				
-			}
+			//}
 		} catch (IOException e) {				
 			e.printStackTrace();
 		} catch (InterruptedException e) {			
