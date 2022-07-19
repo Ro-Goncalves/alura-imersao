@@ -22,7 +22,7 @@ algum arquivo de configuração OU pedindo a avaliação para o usuário digitar
 
 ## Desafios aula 02
 1. Ler a documentação da classe abstrata InputStream. **FEITO**
-2. Centralizar o texto na figurinha.
+2. Centralizar o texto na figurinha. **FEITO**
 3. Fazer um pacote no Whatsapp e/ou Telegram com as suas próprias figurinhas! **FEITO**
 4. Criar diretório de saída das imagens, se ainda não existir. **FEITO**
 5. Colocar outra fonte como a Comic Sans ou a Impact, a fonte usada em memes. **FEITO**

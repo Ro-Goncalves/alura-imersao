@@ -3,6 +3,7 @@ package gerador.figuras;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -46,9 +47,12 @@ public class GeradorDeFigurinhas {
 			graphics.setFont(new Font("Impact", Font.BOLD, 40));			
 			graphics.setColor(Color.GREEN);
 			graphics.setStroke(new BasicStroke(3));
-			graphics.setColor(Color.DARK_GRAY);						
+			graphics.setColor(Color.DARK_GRAY);	
+			
+			FontMetrics fontMetrics = graphics.getFontMetrics();
+			int xInicial = (largura - fontMetrics.stringWidth(textoImagem)) / 2;
 							
-			graphics.drawString(textoImagem, 0, novaAltura - 100);
+			graphics.drawString(textoImagem, xInicial, novaAltura - 150);
 			
 			
 			ImageIO.write(novaImagem, "png", new File(caminhoImagem + nomeImagem));
