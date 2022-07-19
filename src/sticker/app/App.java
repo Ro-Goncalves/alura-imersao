@@ -19,7 +19,7 @@ public class App {
 		properties.setApiKey("themoviedb_key");		
 		
 		//String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();		
-		String url = "https://api.themoviedb.org/3/movie/top_rated?api_key=" + properties.getApiKey() + "&language=pt-BR";		
+		String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";		
 		System.out.println(url);
 		URI uriClient = URI.create(url);
 		HttpClient client = HttpClient.newHttpClient();

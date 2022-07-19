@@ -17,7 +17,7 @@ public class AppStickerFromFile {
 			
 			System.out.println("Título Original: " + jsFilme.get("original_title"));
 			System.out.println("Título: " + jsFilme.get("title"));
-			System.out.println("Imagem: image.tmdb.org/t/p/w500" + jsFilme.get("poster_path"));
+			System.out.println("Imagem: https://image.tmdb.org/t/p/w500" + jsFilme.get("poster_path"));
 			System.out.println("Avaliação: " + jsFilme.get("vote_average"));
 			System.out.println();
 		}
