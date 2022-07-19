@@ -1,5 +1,6 @@
 package sticker.common.util;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,9 +11,12 @@ import java.util.Set;
 public class UtilProperties {
 	private String apiKey;
 	
-	public void setApiKey(String apiKey) {		
-		String configPath = "C:\\Users\\rodrigo.goncalves\\Desktop\\ws-estudos\\alura-stickers\\config\\";
-				
+	public void setApiKey(String apiKey) {
+
+		//Casa
+		File classPath = new File(".");;		
+		String configPath = classPath.getAbsolutePath() + "/config/";
+						
 		Map<String, String> properties;
 		try {
 			properties = getParametrosIntegracao(configPath + "config");

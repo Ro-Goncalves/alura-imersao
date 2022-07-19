@@ -5,21 +5,21 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
-import java.util.List;
-import java.util.Map;
 
-import sticker.common.util.JsonParser;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import sticker.common.util.UtilProperties;
 
 public class App {
-	public static void main(String[] args) {		
+	public static void main(String[] args) throws ParseException {		
 		UtilProperties properties = new UtilProperties();
-		properties.setApiKey("imdb_key");		
+		properties.setApiKey("themoviedb_key");		
 		
-		String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();
-		
-		url = "https://api.themoviedb.org/3/movie/top_rated?api_key=&language=pt-BR";		
-		
+		//String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();		
+		String url = "https://api.themoviedb.org/3/movie/top_rated?api_key=" + properties.getApiKey() + "&language=pt-BR";		
+		System.out.println(url);
 		URI uriClient = URI.create(url);
 		HttpClient client = HttpClient.newHttpClient();
 		
@@ -29,9 +29,12 @@ public class App {
 		try {
 			HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 			String responseBody = response.body();
-			JsonParser parser = new JsonParser();
-			List<Map<String, String>> filmes = parser.parse(responseBody);
-			System.out.println(filmes);
+			JSONParser parser = new JSONParser();
+			JSONObject json = (JSONObject) parser.parse(responseBody);
+			Object filmes = json.get("results");
+			System.out.println((JSONObject) filmes.get("title"));
+			System.out.println(json.get("poster_path"));
+			System.out.println(json.get("vote_average"));
 			
 //			for (Map<String, String> entry : filmes) {
 //				String title = entry.get("title");
