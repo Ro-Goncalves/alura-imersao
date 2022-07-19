@@ -41,7 +41,7 @@ public class GeradorDeFigurinhas {
 			Graphics2D graphics = (Graphics2D) novaImagem.getGraphics();
 			graphics.drawImage(imagemMemoria, 0, 0, null);
 			
-			graphics.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
+			graphics.setFont(new Font("Impact", Font.BOLD, 40));
 			graphics.setColor(Color.DARK_GRAY);
 			graphics.drawString(textoImagem, 0, novaAltura - 100);
 			
