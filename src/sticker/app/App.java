@@ -5,6 +5,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.util.Properties;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -32,9 +33,9 @@ public class App {
 			JSONParser parser = new JSONParser();
 			JSONObject json = (JSONObject) parser.parse(responseBody);
 			Object filmes = json.get("results");
-			System.out.println((JSONObject) filmes.get("title"));
-			System.out.println(json.get("poster_path"));
-			System.out.println(json.get("vote_average"));
+			System.out.println(filmes);
+			//System.out.println(json.get("poster_path"));
+			//System.out.println(json.get("vote_average"));
 			
 //			for (Map<String, String> entry : filmes) {
 //				String title = entry.get("title");

@@ -1,6 +1,5 @@
 bin/*
 config/*
 .settings/*
-/src/testes/*
+src/testes/*
 .vscode/*
-.project
