@@ -8,7 +8,7 @@
 
 2. Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
    com código UTF-8, mostrar a nota do filme como estrelinhas, decorar o terminal 
-   com cores, negrito e itálico usando códigos ANSI, e mais!
+   com cores, negrito e itálico usando códigos ANSI, e mais! **FEITO**
 
 3. Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
    de configuração (p. ex, um arquivo .properties) ou uma variável de ambiente. **FEITO**

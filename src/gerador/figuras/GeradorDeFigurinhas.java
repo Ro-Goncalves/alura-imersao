@@ -42,18 +42,15 @@ public class GeradorDeFigurinhas {
 			
 			Graphics2D graphics = (Graphics2D) novaImagem.getGraphics();
 			graphics.drawImage(imagemMemoria, 0, 0, null);
-			
-			
-			graphics.setFont(new Font("Impact", Font.BOLD, 40));			
-			graphics.setColor(Color.GREEN);
-			graphics.setStroke(new BasicStroke(3));
-			graphics.setColor(Color.DARK_GRAY);	
+						
+			graphics.setColor(Color.DARK_GRAY);
+			graphics.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 50));
+			graphics.setStroke(new BasicStroke(1.2f));
 			
 			FontMetrics fontMetrics = graphics.getFontMetrics();
 			int xInicial = (largura - fontMetrics.stringWidth(textoImagem)) / 2;
 							
 			graphics.drawString(textoImagem, xInicial, novaAltura - 150);
-			
 			
 			ImageIO.write(novaImagem, "png", new File(caminhoImagem + nomeImagem));
 		} catch (IOException e) {			
@@ -68,6 +65,7 @@ public class GeradorDeFigurinhas {
 			InputStream url = new URL("https://image.tmdb.org/t/p/w500/izPNMzffsgZUvlbiYlPxjFr3TAa.jpg").openStream();
 			gerar.criar(url, nomeImagem, "8.6");
 			
+			System.out.println("FIM");
 		} catch (MalformedURLException e) {			
 			e.printStackTrace();
 		} catch (IOException e) {			
