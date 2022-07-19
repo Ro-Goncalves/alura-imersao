@@ -5,6 +5,10 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.font.FontRenderContext;
+import java.awt.font.TextLayout;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +33,7 @@ public class GeradorDeFigurinhas {
 	public void criar(InputStream input, String nomeArquivo, String voto) {
 		String caminhoImagem = absPath + File.separator + "img" + File.separator;
 		String nomeImagem = nomeArquivo + ".png";
-		String textoImagem = textoImagem(voto);
+		String textoImagem = textoImagem(voto);		
 		
 		try {			
 			BufferedImage imagemMemoria = ImageIO.read(input);
@@ -41,16 +45,26 @@ public class GeradorDeFigurinhas {
 			BufferedImage novaImagem = new BufferedImage(largura, novaAltura, BufferedImage.TRANSLUCENT);
 			
 			Graphics2D graphics = (Graphics2D) novaImagem.getGraphics();
-			graphics.drawImage(imagemMemoria, 0, 0, null);
-						
-			graphics.setColor(Color.DARK_GRAY);
-			graphics.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 50));
-			graphics.setStroke(new BasicStroke(1.2f));
+			graphics.drawImage(imagemMemoria, 0, 0, null);			
 			
-			FontMetrics fontMetrics = graphics.getFontMetrics();
-			int xInicial = (largura - fontMetrics.stringWidth(textoImagem)) / 2;
-							
-			graphics.drawString(textoImagem, xInicial, novaAltura - 150);
+			FontRenderContext fontRenderContext = graphics.getFontRenderContext();
+			Font font = new Font(Font.SANS_SERIF, Font.BOLD, 50);
+			
+			var textLayout = new TextLayout(textoImagem, font, fontRenderContext);
+
+			Shape outline = textLayout.getOutline(null);
+			AffineTransform transform = graphics.getTransform();
+			
+			int xInicial = (int) ((largura - textLayout.getAdvance()) / 2);
+			transform.translate(xInicial, novaAltura - 150);
+			graphics.setTransform(transform);
+
+			var outlineStroke = new BasicStroke(largura * 0.004166f);
+			graphics.setStroke(outlineStroke);
+
+			graphics.setColor(Color.DARK_GRAY);
+			graphics.draw(outline);
+			graphics.setClip(outline);	
 			
 			ImageIO.write(novaImagem, "png", new File(caminhoImagem + nomeImagem));
 		} catch (IOException e) {			
