@@ -3,3 +3,4 @@ config/*
 .settings/*
 src/testes/*
 .vscode/*
+img/*
