@@ -1,5 +1,6 @@
 package gerador.figuras;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -12,7 +13,7 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-public class GeradorDeFigurinhas {
+public class GeradorDeFigurinhas {	
 	
 	private String absPath = new File("").getAbsolutePath();	
 	
@@ -41,9 +42,14 @@ public class GeradorDeFigurinhas {
 			Graphics2D graphics = (Graphics2D) novaImagem.getGraphics();
 			graphics.drawImage(imagemMemoria, 0, 0, null);
 			
-			graphics.setFont(new Font("Impact", Font.BOLD, 40));
-			graphics.setColor(Color.DARK_GRAY);
+			
+			graphics.setFont(new Font("Impact", Font.BOLD, 40));			
+			graphics.setColor(Color.GREEN);
+			graphics.setStroke(new BasicStroke(3));
+			graphics.setColor(Color.DARK_GRAY);						
+							
 			graphics.drawString(textoImagem, 0, novaAltura - 100);
+			
 			
 			ImageIO.write(novaImagem, "png", new File(caminhoImagem + nomeImagem));
 		} catch (IOException e) {			
