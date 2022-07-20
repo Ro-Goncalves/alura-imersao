@@ -280,6 +280,34 @@ Alterar o gerar figurinha para aqueles que não possuem foto.
 Transformar a classe que representa os conteúdos em um Record, disponível a partir 
 do Java 16
 
+**SOLUÇÃO**
+
+Para realizar essa demanda utilizei como referência esse [link](https://www.tutorialspoint.com/java16/java16_record.htm).
+
+A solução foi bem simples. Basta alterar o tipo de classe para record, e remover a visibilidade 
+dos atribrutos, dessa forma nosso record ficara:
+```java
+public record Conteudo(
+		
+		String titulo,
+		String urlImagem,
+		String voto
+	) {}
+```
+
+Em nossa classe main, basta chamar o atributo pelo nome e não pelo get
+
+```java
+InputStream inputStream;	
+inputStream = new URL(conteudo.urlImagem()).openStream();
+String nomeArquivo = conteudo.titulo().replace(":", " -");
+String voto = conteudo.voto();
+```
+
+**DESAFIO CONCLUÍDO COM SUCESSO**
+
+---
+
 ### Desafio 02
 Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP
 

@@ -42,9 +42,9 @@ public class AppStickerFromFile {
 		conteudos.forEach((conteudo) -> {
 			try {
 				InputStream inputStream;	
-				inputStream = new URL(conteudo.getUrlImagem()).openStream();
-				String nomeArquivo = conteudo.getTitulo().replace(":", " -");
-				String voto = conteudo.getVoto();
+				inputStream = new URL(conteudo.urlImagem()).openStream();
+				String nomeArquivo = conteudo.titulo().replace(":", " -");
+				String voto = conteudo.voto();
 				
 				Double doubleVote = Double.parseDouble(voto);			
 				Double macas = (doubleVote - doubleVote.intValue()) * 10;
@@ -63,7 +63,7 @@ public class AppStickerFromFile {
 				System.out.println(NEGRITO + COR_TITULO);
 				System.out.print("Imagem:");
 				System.out.print(RESET + " ");
-				System.out.print(conteudo.getUrlImagem());
+				System.out.print(conteudo.urlImagem());
 			
 				System.out.println(NEGRITO + COR_TITULO);
 				System.out.print("Avaliação:");
