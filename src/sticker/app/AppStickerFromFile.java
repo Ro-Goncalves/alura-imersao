@@ -38,8 +38,8 @@ public class AppStickerFromFile {
 			Double macas = (doubleVote - doubleVote.intValue()) * 10;			
 			
 			
-			InputStream inputUrl = new URL(url).openStream();
-			figuras.criar(inputUrl, titulo.replace(":", " -"), voto);
+			//InputStream inputUrl = new URL(url).openStream();
+			//figuras.criar(inputUrl, titulo.replace(":", " -"), voto);
 			
 			System.out.print(COR_LINHA);
 			System.out.println("-".repeat(100));  

@@ -12,8 +12,7 @@ public class UtilProperties {
 	private String apiKey;
 	
 	public void setApiKey(String apiKey) {
-
-		//Casa
+		
 		File classPath = new File(".");;		
 		String configPath = classPath.getAbsolutePath() + "/config/";
 						

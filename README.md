@@ -7,6 +7,9 @@ que sei, como eu passei pelos desafios.
 
 Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 
+**Onde me encontrar**
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-goncalves-650545146/)
+
 # Aula 01
 
 Tudo começa com a consulta em uma API de filmes, a selecionada foi **imdb**, e como ela 
@@ -30,9 +33,9 @@ URI uriClient = URI.create(url);
 * https://api.mocki.io/v2/549a5d8b/Top250Movies - Criada por alguns de nossos amigos, 
 não me recordo quem.
 * https://imdb-api.com/en/API/Top250Movies/ - imdb api top 250 movies, é necessário 
-criar um conta e gerar uma *api key*.
-* https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=1 
-- themoviedb top rated.
+criar uma conta e gerar uma *api key*.
+* https://api.themoviedb.org/3/tv/top_rated - themoviedb top rated, é necessário criar 
+uma conta e gerar uma *api key*.
 
 Agora criamos um *client* que irá chamar essa *URI*
 ```java
@@ -64,16 +67,129 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 
 ## Desafios aula 01
 
-1. Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
-   documentação da API do IMDB, o endpoint que retorna as melhores séries e o que 
-   retorna as séries mais populares.
+Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
+documentação da API do IMDB, o endpoint que retorna as melhores séries e o que 
+retorna as séries mais populares.
 
-2. Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
-   com código UTF-8, mostrar a nota do filme como estrelinhas, decorar o terminal 
-   com cores, negrito e itálico usando códigos ANSI, e mais! **FEITO**
+---
 
-3. Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
-   de configuração (p. ex, um arquivo .properties) ou uma variável de ambiente. **FEITO**
+Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
+com código UTF-8, mostrar a nota do filme como estrelinhas, decorar o terminal 
+com cores, negrito e itálico usando códigos ANSI, e mais!
+
+Tive alguns problemas com essa demanda, meu terminal não reconhecia os caracteres que 
+criam as cores, tive que baixar um plugin para resolver esse problema.
+
+[ANSI Escapes](https://github.com/mihnita/ansi-econsole).
+
+Resolvendo isso, bastou entrar na documentação sujerida pela **Alura**
+
+[ALURA: Decorando terminal cores emojis](https://www.alura.com.br/artigos/decorando-terminal-cores-emojis).
+
+E "codar". Na classe `AppStickerFromFile` criei minhas variáveis que guardarão as cores 
+que utilizarei.
+```java
+final static String NEGRITO = "\u001B[1m";
+final static String RESET = "\u001B[0m";
+final static String COR_TITULO = "\u001B[38;2;254;181;0m";
+final static String FUNDO_TITULO = "\u001B[48;2;234;214;164m";	
+final static String COR_LINHA = "\u001B[38;2;178;129;7m";
+final static String COR_EMOJI = "\u001B[38;2;164;123;22m";
+```
+
+Agora é só brincar com os *prints*
+```java
+System.out.print(COR_LINHA);
+System.out.println("-".repeat(100));  
+System.out.print(RESET);
+
+System.out.print(NEGRITO + COR_TITULO);
+System.out.print("Título Original:");
+System.out.print(RESET + " ");
+System.out.print(jsFilme.get("original_title"));
+
+(...)
+```
+
+![teminal-pintado](assets/terminal-pintado.png)
+
+**DESAFIO CONCLUIDO COM SUCESSO**
+
+---
+
+Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
+de configuração (p. ex, um arquivo .properties) ou uma variável de ambiente.
+
+Como eu já resolvi isso com alguns projetos do trabalho, foi relativamente fácil.
+Criei a pasta **config** com o arquivo **config.properties** dentro. Neste eu coloquei 
+as minhas chaves
+
+```bach
+imdb_key = minha-chave-linda
+themoviedb_key = minha-chave-linda-dois
+```
+
+A classe a baixo abre o arquivo, itera sobre ele pegando todas as entradas e retorna 
+um `Map` com as chaves que coloquei no arquivo.
+
+```java
+private Map<String, String> getParametrosIntegracao(String nomeArquivoParam) throws Exception {
+		if (!nomeArquivoParam.endsWith(".properties")) {
+			nomeArquivoParam += ".properties";
+		}
+
+		FileInputStream arquivo = new FileInputStream(nomeArquivoParam);
+		Properties properties = new Properties();
+		properties.load(arquivo);
+
+		Set<Object> keySet = properties.keySet();
+		Iterator<Object> iterator = keySet.iterator();
+		Map<String, String> parametroMap = new HashMap<String, String>();
+
+		while (iterator.hasNext()) {
+			String key = (String) iterator.next();
+			parametroMap.put(key, properties.getProperty(key));
+		}
+		return parametroMap;
+	}
+```
+
+Existe uma outra classe nesse arquivo que busca por uma *api key* especifica
+
+```java
+public void setApiKey(String apiKey) {
+		
+		File classPath = new File(".");	
+		String configPath = classPath.getAbsolutePath() + "/config/";
+						
+		Map<String, String> properties;
+		try {
+			properties = getParametrosIntegracao(configPath + "config");
+			this.apiKey = properties.get(apiKey);	
+		} catch (Exception e) {			
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public String getApiKey() {
+		return apiKey;
+	}
+```
+
+Agora fica simples pegar uma *api key* que está dentro do meu arquivo que configuração, 
+basta criar uma instância da classe `UtilProperties`, chamar `setApiKey` passando no 
+nome da chave, e buscar o resultado com `getApiKey` 
+
+```java
+UtilProperties properties = new UtilProperties();
+properties.setApiKey("themoviedb_key");
+String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();
+```
+
+**DESAFIO CONCLUIDO COM SUCESSO**
+
+---
 
 4. Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
    **FEITO**
