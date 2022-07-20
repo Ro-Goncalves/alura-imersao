@@ -71,21 +71,4 @@ public class GeradorDeFigurinhas {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void main(String[] args) {
-		GeradorDeFigurinhas gerar = new GeradorDeFigurinhas();		
-		try {
-			String nomeImagem = "O Senhor dos Anéis - O Retorno do Rei";
-			InputStream url = new URL("https://image.tmdb.org/t/p/w500/izPNMzffsgZUvlbiYlPxjFr3TAa.jpg").openStream();
-			gerar.criar(url, nomeImagem, "8.6");
-			
-			System.out.println("FIM");
-		} catch (MalformedURLException e) {			
-			e.printStackTrace();
-		} catch (IOException e) {			
-			e.printStackTrace();
-		}
-		
-	}
-
 }

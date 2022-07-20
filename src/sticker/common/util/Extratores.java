@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import sticker.model.Conteudo;
 
 public class Extratores {
@@ -23,6 +26,24 @@ public class Extratores {
 			
 			conteudos.add(conteudo);
 		}
+		
+		return conteudos;
+		
+	}
+	public List<Conteudo> extraiConteudosNasa(Object json){
+		
+		JSONArray jsonArray = (JSONArray) json;	
+		
+		List<Conteudo> conteudos = new ArrayList<>();
+		
+		jsonArray.forEach((elemento) -> {
+			JSONObject conteudo = (JSONObject) elemento;
+			conteudos.add(
+					new Conteudo(conteudo.get("title").toString(), 
+							     conteudo.get("url").toString())
+					);
+			
+		});
 		
 		return conteudos;
 		

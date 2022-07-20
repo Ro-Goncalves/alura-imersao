@@ -267,8 +267,11 @@ extrair imagem principal e contorná-la.
 Consumir API da nasa, criar uma API key 
 
 Cliente Http -> String Body
+
 Extrator De Conteúdo -> Nasa IMDb The Movie Db
+
 Conteudo
+
 Alterar o gerar figurinha para aqueles que não possuem foto.
 
 ## Desafios aula 03
@@ -283,6 +286,38 @@ Criar as suas próprias exceções e usá-las na classe que implementa o cliente
 ### Desafio 03
 Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista 
 em uma outra
+
+**SOLUÇÃO**
+
+Apliquei essa técnica em várias partes do código. A ideia é simples, pega o objeto que 
+é uma lista, seleciona o método `forEach` dele, esse método irá percorrer todos os elementos 
+do objeto e aplicar uma função que criamos em tempo de execução. No meu caso essa função 
+adicionrá um conteudo na minha lista.
+
+```java
+public List<Conteudo> extraiConteudosNasa(Object json){
+		
+		JSONArray jsonArray = (JSONArray) json;	
+		
+		List<Conteudo> conteudos = new ArrayList<>();
+		
+		jsonArray.forEach((elemento) -> {
+			JSONObject conteudo = (JSONObject) elemento;
+			conteudos.add(
+					new Conteudo(conteudo.get("title").toString(), 
+							     conteudo.get("url").toString())
+					);
+			
+		});
+		
+		return conteudos;
+		
+	}
+```
+
+**DESAFIO CONCLUÍDO COM SUCESSO**
+
+---
 
 ### Desafio 04
 Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado

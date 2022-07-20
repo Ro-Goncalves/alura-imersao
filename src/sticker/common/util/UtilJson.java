@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -30,28 +29,24 @@ public class UtilJson {
 	        pw.flush();
 	        pw.close();
 		} catch (FileNotFoundException e) {			
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 	
-	public JSONArray getArquivoJson(String arquivo) {
-		JSONArray jsResult = new JSONArray();
+	public Object getArquivoJson(String arquivo) {	
+		Object obj = new Object();
 		String pathJsonFile = this.absPath + File.separator + "base-dados" + File.separator + arquivo + ".json";
 		
 		try {
-			Object obj = new JSONParser().parse(new FileReader(pathJsonFile));
-			JSONObject jo = (JSONObject) obj;
+			obj = new JSONParser().parse(new FileReader(pathJsonFile));			
 			
-			jsResult = (JSONArray) jo.get("results");
-						
 		} catch (FileNotFoundException e) {			
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (IOException e) {			
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (ParseException e) {			
-			e.printStackTrace();
-		}
-		
-		return jsResult;
+			throw new RuntimeException(e);
+		}	
+		return obj;
 	}
 }
