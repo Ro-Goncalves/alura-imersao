@@ -75,12 +75,13 @@ retorna as séries mais populares.
 
 ---
 
-###Desafio 02
+### Desafio 02
 Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
 com código UTF-8, mostrar a nota do filme como estrelinhas, decorar o terminal 
 com cores, negrito e itálico usando códigos ANSI, e mais!
 
 **SOLUÇÃO**
+
 Tive alguns problemas com essa demanda, meu terminal não reconhecia os caracteres que 
 criam as cores, tive que baixar um plugin para resolver esse problema.
 
@@ -126,6 +127,7 @@ Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo
 de configuração (p. ex, um arquivo .properties) ou uma variável de ambiente.
 
 **SOLUÇÃO**
+
 Como eu já resolvi isso com alguns projetos do trabalho, foi relativamente fácil.
 Criei a pasta **config** com o arquivo **config.properties** dentro. Neste eu coloquei 
 as minhas chaves
@@ -199,12 +201,49 @@ String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey(
 
 ### Desafio 04
 Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
-   **FEITO**
+ 
+**SOLUÇÃO**
+
+Usei outra biblioteca a *simple parser*
+
+[Exemplo de utilização da biblioteca](https://www.geeksforgeeks.org/parse-json-java/)
+
+Para resolver esse problema criei uma classe `UtilJson` para fazer os tratamentos necessário. 
+Lembre-se: **Estou utilizando um arquivo .json pois não estou conseguindo chamar apis 
+no meu serviço**
+
+Dito isso. Na classe existe um método que é responsavel por abrir o arquivo .json e 
+retornar um **JSONArray**
+
+```java
+public JSONArray getArquivoJson(String arquivo) {
+		JSONArray jsResult = new JSONArray();
+		String pathJsonFile = this.absPath + File.separator + "base-dados" + File.separator + arquivo + ".json";
+		
+		try {
+			Object obj = new JSONParser().parse(new FileReader(pathJsonFile));
+			JSONObject jo = (JSONObject) obj;
+			
+			jsResult = (JSONArray) jo.get("results");
+						
+		} catch (FileNotFoundException e) {			
+			e.printStackTrace();
+		} catch (IOException e) {			
+			e.printStackTrace();
+		} catch (ParseException e) {			
+			e.printStackTrace();
+		}
+		
+		return jsResult;
+	}
+```
 
 ### Desafio 05
-5. Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
+Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
 algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal. 
    **FEITO**
+
+# Aula 02
 
 ## Desafios aula 02
 1. Ler a documentação da classe abstrata InputStream. **FEITO**
@@ -222,4 +261,33 @@ ou consumir o endpoint de posters da API do IMDB (mais trabalhoso), tratando o J
 **FEITO**
 10. Desafio supremo usar alguma biblioteca de manipulação de imagens como OpenCV pra 
 extrair imagem principal e contorná-la.
+
+# Aula 03
+
+Consumir API da nasa, criar uma API key 
+
+Cliente Http -> String Body
+Extrator De Conteúdo -> Nasa IMDb The Movie Db
+Conteudo
+Alterar o gerar figurinha para aqueles que não possuem foto.
+
+## Desafios aula 03
+
+### Desafio 01
+Transformar a classe que representa os conteúdos em um Record, disponível a partir 
+do Java 16
+
+### Desafio 02
+Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP
+
+### Desafio 03
+Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista 
+em uma outra
+
+### Desafio 04
+Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado
+
+### Desafio 05
+Desafio supremo: consumir outras APIs que contém imagens, como a da Marvel, que é 
+bem diferente. Repositório com APIs públicas: [clique aqui](https://github.com/public-apis/public-apis).
 

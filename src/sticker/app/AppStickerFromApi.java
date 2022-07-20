@@ -1,49 +1,42 @@
 package sticker.app;
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
-import java.util.Map;
-import java.util.Properties;
+
+import java.io.InputStream;
+import java.util.List;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import gerador.figuras.GeradorDeFigurinhas;
+import sticker.common.util.Extratores;
 import sticker.common.util.UtilProperties;
+import sticker.http.ClienteHttp;
+import sticker.model.Conteudo;
 
 public class AppStickerFromApi {
 	public static void main(String[] args) throws ParseException {		
 		UtilProperties properties = new UtilProperties();
-		properties.setApiKey("themoviedb_key");		
+		properties.setApiKey("themoviedb_key");
 		
-		//String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();		
-		String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";		
-		URI uriClient = URI.create(url);
+		String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();		
+		ClienteHttp cliente = new ClienteHttp();
 		
-		HttpClient client = HttpClient.newHttpClient();		
+		String json = cliente.BuscaDados(url);	
 		
-		HttpRequest request = HttpRequest.newBuilder(uriClient).GET().build();
+		Extratores extratores = new Extratores();
+		List<Conteudo> conteudos = extratores.extraiConteudosNasa(json);
 		
-		try {
-			HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-			String responseBody = response.body();
-			JSONParser parser = new JSONParser();
-			JSONObject json = (JSONObject) parser.parse(responseBody);
-			Object filmes = json.get("results");
-			System.out.println(filmes);
-			System.out.println(json.get("poster_path"));
-			System.out.println(json.get("vote_average"));			
+		GeradorDeFigurinhas geradora = new GeradorDeFigurinhas();
+		
+		for( int i = 0; i < 3; i++) {
+			Conteudo conteudo = conteudos.get(i);
 			
-		} catch (IOException e) {				
-			e.printStackTrace();
-		} catch (InterruptedException e) {			
-			e.printStackTrace();
-		}
-		
-		
-		
+			InputStream inputStream = new URL(conteudo.getUrlImagem()).openStream();
+			String nomeArquivo = "saida/" + conteudo.getTitulo() + ".png";
+			
+			geradora.criar(inputStream, nomeArquivo, "");
+			
+			System.out.println(conteudo.getTitulo());
+		}		
 	}
 }
