@@ -22,7 +22,7 @@ public class Extratores {
 			String titulo = atributos.get("title");
 			String urlImage = atributos.get("url");
 			
-			Conteudo conteudo = new Conteudo(titulo, urlImage);
+			Conteudo conteudo = new Conteudo(titulo, urlImage, "0.0");
 			
 			conteudos.add(conteudo);
 		}
@@ -40,8 +40,29 @@ public class Extratores {
 			JSONObject conteudo = (JSONObject) elemento;
 			conteudos.add(
 					new Conteudo(conteudo.get("title").toString(), 
-							     conteudo.get("url").toString())
+							     conteudo.get("url").toString(), 
+							     "9.0")
 					);
+			
+		});
+		
+		return conteudos;
+		
+	}
+	
+	public List<Conteudo> extraiConteudosTheMovieDb(Object json){
+		
+		JSONArray jsonArray = (JSONArray) ((JSONObject) json).get("results");
+		
+		List<Conteudo> conteudos = new ArrayList<>();
+
+		jsonArray.forEach((elemento) -> {
+			JSONObject conteudo = (JSONObject) elemento;			
+			conteudos.add(
+					new Conteudo(conteudo.get("title").toString(), 
+							     "https://image.tmdb.org/t/p/w500" + conteudo.get("poster_path"), 
+							     conteudo.get("vote_average").toString())								 
+				);
 			
 		});
 		
@@ -59,7 +80,7 @@ public class Extratores {
 			String titulo = atributos.get("title");
 			String urlImage = atributos.get("image");
 			
-			Conteudo conteudo = new Conteudo(titulo, urlImage);
+			Conteudo conteudo = new Conteudo(titulo, urlImage, "0.0");
 			
 			conteudos.add(conteudo);
 		}
