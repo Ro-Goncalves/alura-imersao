@@ -26,8 +26,8 @@ public class GeradorDeFigurinhas {
 		
 		return voto.equals("8.5") ? "The Third One" : 
                voto.equals("8.6") ? "The Second One" : 
-	           voto.equals("8.7") ? "The First One" :
-		                            "The Last One";
+	           voto.equals("8.7") ? "The Big One" :
+		                            "No One";
 	}
 	
 	public void criar(InputStream input, String nomeArquivo, String voto) {
@@ -48,11 +48,11 @@ public class GeradorDeFigurinhas {
 			graphics.drawImage(imagemMemoria, 0, 0, null);			
 			
 			FontRenderContext fontRenderContext = graphics.getFontRenderContext();
-			Font font = new Font(Font.SANS_SERIF, Font.BOLD, 50);
+			Font font = new Font(Font.SANS_SERIF, Font.BOLD, 60);
 			
 			var textLayout = new TextLayout(textoImagem, font, fontRenderContext);
 
-			Shape outline = textLayout.getOutline(null);
+			Shape outline = textLayout.getOutline(null);			
 			AffineTransform transform = graphics.getTransform();
 			
 			int xInicial = (int) ((largura - textLayout.getAdvance()) / 2);

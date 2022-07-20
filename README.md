@@ -1,5 +1,67 @@
 # Alura: Imersão Java
 
+Projeto interessante realizado na imersão Java da **ALURA**. Ele tras um grande aprendizado 
+para quem está começando e um grande desafio àqueles que estão no meio do caminho. Eu, 
+estou entre esses dois, e, como parte da minha contribuição, irei descrever, com o pouco 
+que sei, como eu passei pelos desafios. 
+
+Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
+
+# Aula 01
+
+Tudo começa com a consulta em uma API de filmes, a selecionada foi **imdb**, e como ela 
+esperado ela cai, com isso utilizamos a **themoviedb**, e alguns colegas disponibilizaram 
+algumas outras. 
+
+Eu tive que utilizar um arquivo estático, estou acompanhando a imersão na empresa e 
+meu **eclipse** não quer me ajudar, e não quero perder tempo arrumando o problema dele.
+
+Dito isso, vamos ao que interessa. A Chamada via API pode ser vista no arquivo `AppStickerFromApi`.
+Realizar a chama é relativamente simples:
+
+Iniciamos criando a *URI* que iremos utilizar
+
+```java
+String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";		
+URI uriClient = URI.create(url);
+```
+
+**URIS SUJERIDAS**
+* https://api.mocki.io/v2/549a5d8b/Top250Movies - Criada por alguns de nossos amigos, 
+não me recordo quem.
+* https://imdb-api.com/en/API/Top250Movies/ - imdb api top 250 movies, é necessário 
+criar um conta e gerar uma *api key*.
+* https://api.themoviedb.org/3/tv/top_rated?api_key=<<api_key>>&language=en-US&page=1 
+- themoviedb top rated.
+
+Agora criamos um *client* que irá chamar essa *URI*
+```java
+HttpClient client = HttpClient.newHttpClient();
+```
+
+Preparamos a nossa chamada
+```java
+HttpRequest request = HttpRequest.newBuilder(uriClient).GET().build();
+```
+
+E a realizamos com e pegamos somente o "corpo" do retorno:
+```java
+HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+String responseBody = response.body();
+```
+
+O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
+
+## Resumo
+1. Criar a URI do serviço que iremos utilizar.
+2. Criar um cliente com `HttpClient`.
+3. Criar uma requisição com `HttpRequest`.
+4. Fazer a requisição com `client.send(request, BodyHandlers.ofString())`.
+5. Pegar o *body* do retorno.
+6. Tratar o retorno.
+
+
+
 ## Desafios aula 01
 
 1. Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
