@@ -311,6 +311,43 @@ String voto = conteudo.voto();
 ### Desafio 02
 Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP
 
+**SOLUÇÃO**
+
+Não cheguei à esse curso na **Alura**, mas bora tentar alguma coisa. Para isso tomarei 
+a [resposta no stakoverflow](https://pt.stackoverflow.com/questions/71670/como-criar-uma-exception-exce%C3%A7%C3%A3o-customizada-em-java)
+como base.
+
+Bem, dado a meu baixo conhecimento no assunto, fiz algo bem simples. Creie a classe  
+**TrataExecoes**, e coloquei dois métodos dentro dela.
+
+```java
+public class TrataExecoes extends RuntimeException{
+	
+	private static final long serialVersionUID = 1149241039409861914L;
+	
+	
+    public TrataExecoes(String msg){
+        super(msg);
+    }
+    
+    public TrataExecoes(String msg, Throwable cause){
+        super(msg, cause);
+    }
+
+}
+```
+
+E a usei no `catch` da classe **ClienteHttp**
+```java
+} catch (IOException | InterruptedException e) {	
+	throw new TrataExecoes("Algo De Errado Não Está Certo" , e);									
+} 	
+```
+
+**DESAFIO CONCLUÍDO COM SUCESSO**
+
+---
+
 ### Desafio 03
 Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista 
 em uma outra
