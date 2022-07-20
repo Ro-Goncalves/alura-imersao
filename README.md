@@ -387,6 +387,39 @@ public List<Conteudo> extraiConteudosNasa(Object json){
 ### Desafio 04
 Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado
 
+**SOLUÇÃO**
+
+Para entender melhor o que foi feito, ler o [artigo](https://receitasdecodigo.com.br/java/enum-no-java)
+
+Na minha implentação, criei o `enun` **ArquivoJson**
+```java
+public enum ArquivosJson {
+	THE_MOVIE_DB("themoviedb-topRated"),
+	NASA("nasa-apod");
+	
+	private String nomeArquivo;
+	
+	private ArquivosJson(String nomeArquivo) {
+		this.nomeArquivo = nomeArquivo;
+	}
+	
+	public String getNomeArquivo() {
+		return this.nomeArquivo;
+	}
+
+}
+```
+
+E em minha classe **AppStickerFromFile** o utilizei da seguinte forma:
+```java
+String arquivosJson = ArquivosJson.THE_MOVIE_DB.getNomeArquivo();
+Object json = utilJson.getArquivoJson(arquivosJson);
+```
+
+**DESAFIO CONCLUÍDO COM SUCESSO**
+
+---
+
 ### Desafio 05
 Desafio supremo: consumir outras APIs que contém imagens, como a da Marvel, que é 
 bem diferente. Repositório com APIs públicas: [clique aqui](https://github.com/public-apis/public-apis).

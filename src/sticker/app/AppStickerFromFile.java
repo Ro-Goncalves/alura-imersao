@@ -13,6 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import gerador.figuras.GeradorDeFigurinhas;
+import sticker.common.util.ArquivosJson;
 import sticker.common.util.Extratores;
 import sticker.common.util.UtilJson;
 import sticker.model.Conteudo;
@@ -31,12 +32,15 @@ public class AppStickerFromFile {
 		Extratores extratores = new Extratores();
 		GeradorDeFigurinhas geradora = new GeradorDeFigurinhas();
 		
+		
 		//The Movie Db
-		Object json = utilJson.getArquivoJson("themoviedb-topRated");
+		String arquivosJson = ArquivosJson.THE_MOVIE_DB.getNomeArquivo();
+		Object json = utilJson.getArquivoJson(arquivosJson);
 		List<Conteudo> conteudos = extratores.extraiConteudosTheMovieDb(json);
 		
 		//Nasa
-		//Object json = utilJson.getArquivoJson("nasa-apod");
+		//String arquivosJson = ArquivosJson.NASA.getNomeArquivo();
+		//Object json = utilJson.getArquivoJson(arquivosJson);
 		//List<Conteudo> conteudos = extratores.extraiConteudosNasa(json);
 		
 		conteudos.forEach((conteudo) -> {
