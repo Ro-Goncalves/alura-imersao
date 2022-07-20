@@ -8,6 +8,7 @@ que sei, como eu passei pelos desafios.
 Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 
 **Onde me encontrar**
+
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-goncalves-650545146/)
 
 # Aula 01
@@ -67,16 +68,19 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 
 ## Desafios aula 01
 
+### Desafio 01
 Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
 documentação da API do IMDB, o endpoint que retorna as melhores séries e o que 
 retorna as séries mais populares.
 
 ---
 
+###Desafio 02
 Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
 com código UTF-8, mostrar a nota do filme como estrelinhas, decorar o terminal 
 com cores, negrito e itálico usando códigos ANSI, e mais!
 
+**SOLUÇÃO**
 Tive alguns problemas com essa demanda, meu terminal não reconhecia os caracteres que 
 criam as cores, tive que baixar um plugin para resolver esse problema.
 
@@ -113,13 +117,15 @@ System.out.print(jsFilme.get("original_title"));
 
 ![teminal-pintado](assets/terminal-pintado.png)
 
-**DESAFIO CONCLUIDO COM SUCESSO**
+**DESAFIO CONCLUÍDO COM SUCESSO**
 
 ---
 
+### Desafio 03
 Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
 de configuração (p. ex, um arquivo .properties) ou uma variável de ambiente.
 
+**SOLUÇÃO**
 Como eu já resolvi isso com alguns projetos do trabalho, foi relativamente fácil.
 Criei a pasta **config** com o arquivo **config.properties** dentro. Neste eu coloquei 
 as minhas chaves
@@ -187,13 +193,15 @@ properties.setApiKey("themoviedb_key");
 String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();
 ```
 
-**DESAFIO CONCLUIDO COM SUCESSO**
+**DESAFIO CONCLUÍDO COM SUCESSO**
 
 ---
 
-4. Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
+### Desafio 04
+Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
    **FEITO**
 
+### Desafio 05
 5. Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
 algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal. 
    **FEITO**
