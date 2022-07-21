@@ -71,7 +71,8 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 
 ---
 
-## Desafios aula 01
+<details>
+<summary><h2> Desafios aula 01 </h2></summary>
 
 ### Desafio 01
 Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
@@ -250,6 +251,7 @@ algum arquivo de configuração OU pedindo a avaliação para o usuário digitar
    
  ---
  
+</details>
 </details>
 
 <details>
