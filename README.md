@@ -1,5 +1,9 @@
 # Alura: Imersão Java
 
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+</p>
+
 Projeto interessante realizado na imersão Java da **ALURA**. Ele tras um grande aprendizado 
 para quem está começando e um grande desafio àqueles que estão no meio do caminho. Eu, 
 estou entre esses dois, e, como parte da minha contribuição, irei descrever, com o pouco 
@@ -12,6 +16,9 @@ Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-goncalves-650545146/)
 
 # Aula 01
+
+<details>
+<summary>Clique para Ver </summary>
 
 Tudo começa com a consulta em uma API de filmes, a selecionada foi **imdb**, e como ela 
 esperado ela cai, com isso utilizamos a **themoviedb**, e alguns colegas disponibilizaram 
@@ -120,6 +127,7 @@ System.out.print(jsFilme.get("original_title"));
 
 **DESAFIO CONCLUÍDO COM SUCESSO**
 
+</details>
 ---
 
 ### Desafio 03
