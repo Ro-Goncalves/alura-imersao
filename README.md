@@ -15,8 +15,6 @@ Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigo-goncalves-650545146/)
 
-# Aula 01
-
 <details>
 <summary><h1> Aula 01 </h1></summary>
 
@@ -71,7 +69,7 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 5. Pegar o *body* do retorno.
 6. Tratar o retorno.
 
-
+---
 
 ## Desafios aula 01
 
@@ -126,8 +124,6 @@ System.out.print(jsFilme.get("original_title"));
 ![teminal-pintado](assets/terminal-pintado.png)
 
 **DESAFIO CONCLUÍDO COM SUCESSO**
-
-</details>
 
 ---
 
@@ -251,8 +247,13 @@ public JSONArray getArquivoJson(String arquivo) {
 Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
 algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal. 
    **FEITO**
+   
+ ---
+ 
+</details>
 
-# Aula 02
+<details>
+<summary><h1> Aula 02 </h1></summary>
 
 ## Desafios aula 02
 1. Ler a documentação da classe abstrata InputStream. **FEITO**
@@ -271,7 +272,12 @@ ou consumir o endpoint de posters da API do IMDB (mais trabalhoso), tratando o J
 10. Desafio supremo usar alguma biblioteca de manipulação de imagens como OpenCV pra 
 extrair imagem principal e contorná-la.
 
-# Aula 03
+---
+
+</details>
+
+<details>
+<summary><h1> Aula 03 </h1></summary>
 
 Consumir API da nasa, criar uma API key 
 
@@ -432,4 +438,8 @@ Object json = utilJson.getArquivoJson(arquivosJson);
 ### Desafio 05
 Desafio supremo: consumir outras APIs que contém imagens, como a da Marvel, que é 
 bem diferente. Repositório com APIs públicas: [clique aqui](https://github.com/public-apis/public-apis).
+
+---
+
+<details>
 
