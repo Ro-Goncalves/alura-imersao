@@ -74,14 +74,20 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 <details>
 <summary><h2> Desafios aula 01 </h2></summary>
 
-### Desafio 01
+<details>
+<summary><h3> Desafio 01 </h3></summary>
+
 Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
 documentação da API do IMDB, o endpoint que retorna as melhores séries e o que 
 retorna as séries mais populares.
 
+</details>
+
 ---
 
-### Desafio 02
+<details>
+<summary><h3> Desafio 02 </h3></summary>
+
 Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
 com código UTF-8, mostrar a nota do filme como estrelinhas, decorar o terminal 
 com cores, negrito e itálico usando códigos ANSI, e mais!
@@ -126,9 +132,13 @@ System.out.print(jsFilme.get("original_title"));
 
 **DESAFIO CONCLUÍDO COM SUCESSO**
 
+</details>
+
 ---
 
-### Desafio 03
+<details>
+<summary><h3> Desafio 03 </h3></summary>
+
 Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
 de configuração (p. ex, um arquivo .properties) ou uma variável de ambiente.
 
@@ -203,9 +213,13 @@ String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey(
 
 **DESAFIO CONCLUÍDO COM SUCESSO**
 
+</details>
+
 ---
 
-### Desafio 04
+<details>
+<summary><h3> Desafio 04 </h3></summary>
+
 Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
  
 **SOLUÇÃO**
@@ -244,10 +258,17 @@ public JSONArray getArquivoJson(String arquivo) {
 	}
 ```
 
-### Desafio 05
+</details>
+
+---
+
+<details>
+<summary><h3> Desafio 05 </h3></summary>
+
 Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
 algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal. 
-   **FEITO**
+
+</details>
    
  ---
  
@@ -257,7 +278,9 @@ algum arquivo de configuração OU pedindo a avaliação para o usuário digitar
 <details>
 <summary><h1> Aula 02 </h1></summary>
 
-## Desafios aula 02
+<details>
+<summary><h2> Desafios aula 02 </h2></summary>
+
 1. Ler a documentação da classe abstrata InputStream. **FEITO**
 2. Centralizar o texto na figurinha. **FEITO**
 3. Fazer um pacote no Whatsapp e/ou Telegram com as suas próprias figurinhas! **FEITO**
@@ -273,6 +296,8 @@ ou consumir o endpoint de posters da API do IMDB (mais trabalhoso), tratando o J
 **FEITO**
 10. Desafio supremo usar alguma biblioteca de manipulação de imagens como OpenCV pra 
 extrair imagem principal e contorná-la.
+
+</details>
 
 ---
 
