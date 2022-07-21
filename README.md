@@ -77,6 +77,10 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 <details>
 <summary><h3> Desafio 01 </h3></summary>
 
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=NÃO%20INICIADO&color=RED&style=for-the-badge"/>
+</p>
+
 Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
 documentação da API do IMDB, o endpoint que retorna as melhores séries e o que 
 retorna as séries mais populares.
@@ -87,6 +91,10 @@ retorna as séries mais populares.
 
 <details>
 <summary><h3> Desafio 02 </h3></summary>
+
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=GREEN&style=for-the-badge"/>
+</p>
 
 Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
 com código UTF-8, mostrar a nota do filme como estrelinhas, decorar o terminal 
@@ -130,14 +138,17 @@ System.out.print(jsFilme.get("original_title"));
 
 ![teminal-pintado](assets/terminal-pintado.png)
 
-**DESAFIO CONCLUÍDO COM SUCESSO**
-
 </details>
 
 ---
 
 <details>
 <summary><h3> Desafio 03 </h3></summary>
+
+
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=GREEN&style=for-the-badge"/>
+</p>
 
 Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
 de configuração (p. ex, um arquivo .properties) ou uma variável de ambiente.
@@ -211,14 +222,16 @@ properties.setApiKey("themoviedb_key");
 String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey();
 ```
 
-**DESAFIO CONCLUÍDO COM SUCESSO**
-
 </details>
 
 ---
 
 <details>
 <summary><h3> Desafio 04 </h3></summary>
+
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=ORANGE&style=for-the-badge"/>
+</p>
 
 Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
  
@@ -264,6 +277,11 @@ public JSONArray getArquivoJson(String arquivo) {
 
 <details>
 <summary><h3> Desafio 05 </h3></summary>
+
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=NÃO%20INICIADO&color=RED&style=for-the-badge"/>
+</p>
+
 
 Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
 algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal. 
