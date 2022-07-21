@@ -78,7 +78,7 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 <summary><h3> Desafio 01 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/badge/ESTATUS-N%C3%83O%20INICIADO-red"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red"/>
 </p>
 
 Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
@@ -93,7 +93,7 @@ retorna as séries mais populares.
 <summary><h3> Desafio 02 </h3></summary>
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=GREEN&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess"/>
 </p>
 
 Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
@@ -147,7 +147,7 @@ System.out.print(jsFilme.get("original_title"));
 
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=FINALIZADO&color=GREEN&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess"/>
 </p>
 
 Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
@@ -230,7 +230,7 @@ String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey(
 <summary><h3> Desafio 04 </h3></summary>
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=ORANGE&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=EM%20DESENVOLVIMENTO&color=important"/>
 </p>
 
 Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
@@ -279,7 +279,7 @@ public JSONArray getArquivoJson(String arquivo) {
 <summary><h3> Desafio 05 </h3></summary>
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=NAO%20INICIADO&color=RED&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red"/>
 </p>
 
 
