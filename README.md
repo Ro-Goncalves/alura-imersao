@@ -517,10 +517,10 @@ public List<Conteudo> extraiConteudosNasa(Object json){
 </details>
 <details>
 <summary>
-<h3> Desafio 04 </h3>
+<h3> Desafio 04 
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
-</p>
+</p></h3>
 </summary>
 
 Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado
