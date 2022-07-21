@@ -18,7 +18,7 @@ Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 # Aula 01
 
 <details>
-<summary>Clique para Ver </summary>
+<summary><h1> Aula 01 </h1></summary>
 
 Tudo começa com a consulta em uma API de filmes, a selecionada foi **imdb**, e como ela 
 esperado ela cai, com isso utilizamos a **themoviedb**, e alguns colegas disponibilizaram 
@@ -128,6 +128,7 @@ System.out.print(jsFilme.get("original_title"));
 **DESAFIO CONCLUÍDO COM SUCESSO**
 
 </details>
+
 ---
 
 ### Desafio 03
