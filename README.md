@@ -69,8 +69,6 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 5. Pegar o *body* do retorno.
 6. Tratar o retorno.
 
----
-
 <details>
 <summary><h2> Desafios aula 01 </h2></summary>
 
@@ -78,7 +76,7 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 <summary><h3> Desafio 01 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
 </p>
 
 Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
@@ -87,13 +85,11 @@ retorna as séries mais populares.
 
 </details>
 
----
-
 <details>
 <summary><h3> Desafio 02 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
 Usar sua criatividade para deixar a saída dos dados mais bonitinha: usar emojis 
@@ -140,14 +136,12 @@ System.out.print(jsFilme.get("original_title"));
 
 </details>
 
----
-
 <details>
 <summary><h3> Desafio 03 </h3></summary>
 
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
 Colocar a chave da API do IMDB em algum lugar fora do código como um arquivo 
@@ -224,13 +218,11 @@ String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey(
 
 </details>
 
----
-
 <details>
 <summary><h3> Desafio 04 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=EM%20DESENVOLVIMENTO&color=important"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=EM%20DESENVOLVIMENTO&color=important&style=for-the-badge"/>
 </p>
 
 Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
@@ -273,13 +265,11 @@ public JSONArray getArquivoJson(String arquivo) {
 
 </details>
 
----
-
 <details>
 <summary><h3> Desafio 05 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
 </p>
 
 
@@ -288,8 +278,6 @@ algum arquivo de configuração OU pedindo a avaliação para o usuário digitar
 
 </details>
    
- ---
- 
 </details>
 </details>
 
@@ -299,26 +287,111 @@ algum arquivo de configuração OU pedindo a avaliação para o usuário digitar
 <details>
 <summary><h2> Desafios aula 02 </h2></summary>
 
-1. Ler a documentação da classe abstrata InputStream. **FEITO**
-2. Centralizar o texto na figurinha. **FEITO**
-3. Fazer um pacote no Whatsapp e/ou Telegram com as suas próprias figurinhas! **FEITO**
-4. Criar diretório de saída das imagens, se ainda não existir. **FEITO**
-5. Colocar outra fonte como a Comic Sans ou a Impact, a fonte usada em memes. **FEITO**
-6. Colocar uma imagem de você que está fazendo esse curso sorrindo, fazendo joinha!
-7. Colocar contorno (outline) no texto da imagem.
-8. Tratar as imagens retornadas pela API do IMDB para pegar uma imagem maior ao invés 
+<details>
+<summary><h3> Desafio 01 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Ler a documentação da classe abstrata InputStream.
+
+</details>
+<details>
+<summary><h3> Desafio 02 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Centralizar o texto na figurinha.
+
+</details>
+<details>
+<summary><h3> Desafio 02 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Fazer um pacote no Whatsapp e/ou Telegram com as suas próprias figurinhas!
+
+</details>
+<details>
+<summary><h3> Desafio 04 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Criar diretório de saída das imagens, se ainda não existir.
+
+</details>
+<details>
+<summary><h3> Desafio 05 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Colocar outra fonte como a Comic Sans ou a Impact, a fonte usada em memes.
+
+</details>
+<details>
+<summary><h3> Desafio 06 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Colocar uma imagem de você que está fazendo esse curso sorrindo, fazendo joinha!
+
+</details>
+<details>
+<summary><h3> Desafio 07 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Colocar contorno (outline) no texto da imagem.
+
+</details>
+<details>
+<summary><h3> Desafio 08 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Tratar as imagens retornadas pela API do IMDB para pegar uma imagem maior ao invés 
 dos thumbnails. Opções: pegar a URL da imagem e remover o trecho mostrado durante a aula. 
 ou consumir o endpoint de posters da API do IMDB (mais trabalhoso), tratando o JSON retornado. 
-**ESTOU USANDO OUTRA API**
-9. Fazer com que o texto da figurinha seja personalizado de acordo com as classificações do IMDB. 
-**FEITO**
-10. Desafio supremo usar alguma biblioteca de manipulação de imagens como OpenCV pra 
+
+</details>
+<details>
+<summary><h3> Desafio 09 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Fazer com que o texto da figurinha seja personalizado de acordo com as classificações do IMDB. 
+
+</details>
+<details>
+<summary><h3> Desafio 10 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
+
+Desafio supremo usar alguma biblioteca de manipulação de imagens como OpenCV pra 
 extrair imagem principal e contorná-la.
 
 </details>
 
----
-
+</details>
 </details>
 
 <details>
@@ -366,8 +439,6 @@ String voto = conteudo.voto();
 
 **DESAFIO CONCLUÍDO COM SUCESSO**
 
----
-
 ### Desafio 02
 Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP
 
@@ -406,8 +477,6 @@ E a usei no `catch` da classe **ClienteHttp**
 
 **DESAFIO CONCLUÍDO COM SUCESSO**
 
----
-
 ### Desafio 03
 Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista 
 em uma outra
@@ -441,8 +510,6 @@ public List<Conteudo> extraiConteudosNasa(Object json){
 ```
 
 **DESAFIO CONCLUÍDO COM SUCESSO**
-
----
 
 ### Desafio 04
 Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado
@@ -478,13 +545,9 @@ Object json = utilJson.getArquivoJson(arquivosJson);
 
 **DESAFIO CONCLUÍDO COM SUCESSO**
 
----
-
 ### Desafio 05
 Desafio supremo: consumir outras APIs que contém imagens, como a da Marvel, que é 
 bem diferente. Repositório com APIs públicas: [clique aqui](https://github.com/public-apis/public-apis).
-
----
 
 <details>
 
