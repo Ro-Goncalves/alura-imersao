@@ -4,10 +4,14 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </p>
 
-Projeto interessante realizado na imersão Java da **ALURA**. Ele tras um grande aprendizado 
+Projeto muito interessante realizado na imersão Java da **ALURA**. Ele tras um grande aprendizado 
 para quem está começando e um grande desafio àqueles que estão no meio do caminho. Eu, 
 estou entre esses dois, e, como parte da minha contribuição, irei descrever, com o pouco 
 que sei, como eu passei pelos desafios. 
+
+**IMPORTATE!!**
+As descrições de como resolvi os desafios podem estar diferentes dos código que estão 
+nos fontes do projeto, pois com o caminhar das aulas o código será refatorado. 
 
 Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 
@@ -20,18 +24,18 @@ Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 
 Tudo começa com a consulta em uma API de filmes, a selecionada foi **imdb**, e como ela 
 esperado ela cai, com isso utilizamos a **themoviedb**, e alguns colegas disponibilizaram 
-algumas outras. 
+outras. 
 
-Eu tive que utilizar um arquivo estático, estou acompanhando a imersão na empresa e 
+Eu tive que utilizar um arquivo estático; estou acompanhando a imersão na empresa e 
 meu **eclipse** não quer me ajudar, e não quero perder tempo arrumando o problema dele.
 
-Dito isso, vamos ao que interessa. A Chamada via API pode ser vista no arquivo `AppStickerFromApi`.
+Dito isso, vamos ao que interessa. A Chamada via API pode ser vista no arquivo **AppStickerFromApi**.
 Realizar a chama é relativamente simples:
 
 Iniciamos criando a *URI* que iremos utilizar
 
 ```java
-String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";		
+String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
 URI uriClient = URI.create(url);
 ```
 
@@ -107,13 +111,14 @@ Resolvendo isso, bastou entrar na documentação sujerida pela **Alura**
 
 [ALURA: Decorando terminal cores emojis](https://www.alura.com.br/artigos/decorando-terminal-cores-emojis).
 
-E "codar". Na classe `AppStickerFromFile` criei minhas variáveis que guardarão as cores 
-que utilizarei.
+e "codar". 
+
+Na classe *AppStickerFromFile* criei minhas variáveis que guardarão as cores que utilizarei.
 ```java
 final static String NEGRITO = "\u001B[1m";
 final static String RESET = "\u001B[0m";
 final static String COR_TITULO = "\u001B[38;2;254;181;0m";
-final static String FUNDO_TITULO = "\u001B[48;2;234;214;164m";	
+final static String FUNDO_TITULO = "\u001B[48;2;234;214;164m";
 final static String COR_LINHA = "\u001B[38;2;178;129;7m";
 final static String COR_EMOJI = "\u001B[38;2;164;123;22m";
 ```
@@ -121,7 +126,7 @@ final static String COR_EMOJI = "\u001B[38;2;164;123;22m";
 Agora é só brincar com os *prints*
 ```java
 System.out.print(COR_LINHA);
-System.out.println("-".repeat(100));  
+System.out.println("-".repeat(100));
 System.out.print(RESET);
 
 System.out.print(NEGRITO + COR_TITULO);
@@ -188,14 +193,14 @@ Existe uma outra classe nesse arquivo que busca por uma *api key* especifica
 ```java
 public void setApiKey(String apiKey) {
 		
-		File classPath = new File(".");	
+		File classPath = new File(".");
 		String configPath = classPath.getAbsolutePath() + "/config/";
 						
 		Map<String, String> properties;
 		try {
 			properties = getParametrosIntegracao(configPath + "config");
-			this.apiKey = properties.get(apiKey);	
-		} catch (Exception e) {			
+			this.apiKey = properties.get(apiKey);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
@@ -207,8 +212,8 @@ public void setApiKey(String apiKey) {
 ```
 
 Agora fica simples pegar uma *api key* que está dentro do meu arquivo que configuração, 
-basta criar uma instância da classe `UtilProperties`, chamar `setApiKey` passando no 
-nome da chave, e buscar o resultado com `getApiKey` 
+basta criar uma instância da classe **UtilProperties**, chamar **setApiKey** passando no 
+nome da chave, e buscar o resultado com **getApiKey**
 
 ```java
 UtilProperties properties = new UtilProperties();
@@ -222,7 +227,7 @@ String url = "https://imdb-api.com/en/API/Top250Movies/" + properties.getApiKey(
 <summary><h3> Desafio 04 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=EM%20DESENVOLVIMENTO&color=important&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
 Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou GSON. 
@@ -233,33 +238,58 @@ Usei outra biblioteca a *simple parser*
 
 [Exemplo de utilização da biblioteca](https://www.geeksforgeeks.org/parse-json-java/)
 
-Para resolver esse problema criei uma classe `UtilJson` para fazer os tratamentos necessário. 
+Para resolver esse problema criei uma classe **UtilJson** que realizara os tratamentos necessário. 
 Lembre-se: **Estou utilizando um arquivo .json pois não estou conseguindo chamar apis 
 no meu serviço**
 
 Dito isso. Na classe existe um método que é responsavel por abrir o arquivo .json e 
-retornar um **JSONArray**
+retornar um **Object**, dessa forma ficará mais fácil realizar os tratamentos posteriores.
 
 ```java
-public JSONArray getArquivoJson(String arquivo) {
-		JSONArray jsResult = new JSONArray();
+public Object getArquivoJson(String arquivo) {	
+		Object obj = new Object();
 		String pathJsonFile = this.absPath + File.separator + "base-dados" + File.separator + arquivo + ".json";
 		
 		try {
-			Object obj = new JSONParser().parse(new FileReader(pathJsonFile));
-			JSONObject jo = (JSONObject) obj;
+			obj = new JSONParser().parse(new FileReader(pathJsonFile));			
 			
-			jsResult = (JSONArray) jo.get("results");
-						
 		} catch (FileNotFoundException e) {			
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (IOException e) {			
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (ParseException e) {			
-			e.printStackTrace();
-		}
+			throw new RuntimeException(e);
+		}	
+		return obj;
+	}
+```
+
+O tratamento é feito dependendo da API que estamos chamando, pois cada uma retonar um 
+Json. 
+
+Por exemplo temos o extrator para as chamadas no **The Movie DB**. Veja que nesse caso, 
+primeiro eu transformo o de **Object** para **JSONObject**, pego a **tag results** e 
+depois transformo em **JSONArray**. Isso tudo para poder conseguir fazer um *forEach*.
+
+```java
+	public List<Conteudo> extraiConteudosTheMovieDb(Object json){
 		
-		return jsResult;
+		JSONArray jsonArray = (JSONArray) ((JSONObject) json).get("results");
+		
+		List<Conteudo> conteudos = new ArrayList<>();
+
+		jsonArray.forEach((elemento) -> {
+			JSONObject conteudo = (JSONObject) elemento;			
+			conteudos.add(
+					new Conteudo(conteudo.get("title").toString(), 
+							     "https://image.tmdb.org/t/p/w500" + conteudo.get("poster_path"), 
+							     conteudo.get("vote_average").toString())								 
+				);
+			
+		});
+		
+		return conteudos;
+		
 	}
 ```
 
@@ -269,12 +299,44 @@ public JSONArray getArquivoJson(String arquivo) {
 <summary><h3> Desafio 05 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
 
 Desafio supremo: criar alguma maneira para você dar uma avaliação ao filme, puxando de 
 algum arquivo de configuração OU pedindo a avaliação para o usuário digitar no terminal. 
+
+**SOLUÇÃO**
+
+Fiz algo bem simples, criei a classe **AppStickerSalvaVoto**, ela pedirá algumas informação 
+ao usuário e chamará o método **salvarVoto** da classe **UtilJson**.
+
+O funcionamento desse método é relativamente simmples. Cria um **JSONObject** insere 
+as informações que foram passadas como paramêtro, cria um **PrintWriter**, ele será 
+o responsável por salvar as informações em um arquivo.
+
+Como disse é algo bem simples, recebe o voto e salva em um arquivo.
+
+```java
+public void salvarVoto(String Usuario, String title, String rating) {
+		JSONObject jo = new JSONObject();
+		String classPath = UtilJson.class.getClassLoader().getResource("").getPath();
+		String votoPath = classPath + "../base-dados/" ;
+		
+		jo.put("title", title);
+		jo.put("usuario", Usuario);
+		jo.put("rating", rating);
+					
+		try {
+			PrintWriter pw = new PrintWriter(votoPath + "Filmes.json");
+			pw.write(jo.toJSONString());         
+	        pw.flush();
+	        pw.close();
+		} catch (FileNotFoundException e) {	
+			throw new RuntimeException(e);
+		}
+	}
+```
 
 </details>
    
@@ -291,20 +353,38 @@ algum arquivo de configuração OU pedindo a avaliação para o usuário digitar
 <summary><h3> Desafio 01 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
 Ler a documentação da classe abstrata InputStream.
+
+**SOLUÇÃO**
+
+Lido.
 
 </details>
 <details>
 <summary><h3> Desafio 02 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
 Centralizar o texto na figurinha.
+
+**SOLUÇÃO**
+
+A conta é relativamente simples. Pegar a largura total da imagem, subtrair a largura 
+do texto, isso nos dará o espaço que sobra, basta dividir esse valor por dois. E pegar 
+essa possição como a inicial para o texto.
+
+```java
+int xInicial = (int) ((largura - textLayout.getAdvance()) / 2);
+```
+
+Caso tenha ficado meio confuso a conta, tente entender esse imagem.
+
+![calculo](assets/calculo.png)
 
 </details>
 <details>
@@ -321,10 +401,22 @@ Fazer um pacote no Whatsapp e/ou Telegram com as suas próprias figurinhas!
 <summary><h3> Desafio 04 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
 Criar diretório de saída das imagens, se ainda não existir.
+
+**SOLUÇÃO**
+
+No meu caso eu criei o diretório a mão, mas a solução é fácil. A biblioteca **File** 
+ajuda e muito nessa hora. Com ela podemos verificar se um diretório existe, se não basta 
+criá-lo.
+
+```java
+if (!new File(caminhoPasta).exists()) {
+	new File(caminhoPasta).mkdirs();
+}
+```
 
 </details>
 <details>
@@ -351,10 +443,40 @@ Colocar uma imagem de você que está fazendo esse curso sorrindo, fazendo joinh
 <summary><h3> Desafio 07 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
 Colocar contorno (outline) no texto da imagem.
+
+**SOLUÇÃO**
+
+Nesse o Alexandre da **Alura** me ajudou e muito. Confesso que não entendo muito o que 
+está acontecendo ai; pelo que li, quem faz esse **outline** é o método **setStroke**, 
+ele deve receber um objeto do tipo **Strock**, por isso criamos um **BasicStroke**, 
+
+Para escrever a frase precisamos usar o método **draw**, que recebe um objeto do tipo 
+**Shape** que foi criado em `Shape outline = textLayout.getOutline(null);`
+
+```java
+FontRenderContext fontRenderContext = graphics.getFontRenderContext();
+			Font font = new Font(Font.SANS_SERIF, Font.BOLD, 60);
+			
+			TextLayout textLayout = new TextLayout(textoImagem, font, fontRenderContext);
+
+			Shape outline = textLayout.getOutline(null);
+			AffineTransform transform = graphics.getTransform();
+			
+			int xInicial = (int) ((largura - textLayout.getAdvance()) / 2);
+			transform.translate(xInicial, novaAltura - 150);
+			graphics.setTransform(transform);
+
+			BasicStroke outlineStroke = new BasicStroke(largura * 0.004166f);
+			graphics.setStroke(outlineStroke);
+
+			graphics.setColor(Color.DARK_GRAY);
+			graphics.draw(outline);
+			graphics.setClip(outline);
+```
 
 </details>
 <details>
@@ -373,10 +495,29 @@ ou consumir o endpoint de posters da API do IMDB (mais trabalhoso), tratando o J
 <summary><h3> Desafio 09 </h3></summary>
 
 <p align="center">
-<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
-Fazer com que o texto da figurinha seja personalizado de acordo com as classificações do IMDB. 
+Fazer com que o texto da figurinha seja personalizado de acordo com as classificações do IMDB.
+
+**SOLUÇÃO**
+
+Fácil, ao menos uma é. Na minha classe **GeradorDeFigurinhas** criei o método **textoImagem** 
+que recebe o **voto**, utilizando o operador ternário eu consigo verificar o voto e 
+dar uma mensagem personalizada.
+
+**Vale lembrar que estou utilizando um arquio estático como fonte dos dados, e nele só 
+possiu os voltos 8.5, 8.6 e 8.7, por isso que a solução ficou assim**
+
+```java
+public String textoImagem(String voto) {
+		
+		return voto.equals("8.5") ? "The Third One" : 
+               voto.equals("8.6") ? "The Second One" : 
+	           voto.equals("8.7") ? "The Big One" :
+		                            "No One";
+	}
+```
 
 </details>
 <details>
@@ -397,15 +538,99 @@ extrair imagem principal e contorná-la.
 <details>
 <summary><h1> Aula 03 </h1></summary>
 
-Consumir API da nasa, criar uma API key 
+Nessa aula consumimos a API da nasa, nela conseguimos trazer outras imagens para o nosso 
+projeto.
 
-Cliente Http -> String Body
+Também refatoramos o nosso código. Criamos a classe **ClienteHttp**, esse será a responsável 
+por fazer as chamadas nas APIs. 
 
-Extrator De Conteúdo -> Nasa IMDb The Movie Db
+```java
+public String BuscaDados(String url) {				
+		
+		try {		
+			URI uriClient = URI.create(url);		
+			HttpClient client = HttpClient.newHttpClient();			
+			HttpRequest request = HttpRequest.newBuilder(uriClient).GET().build();	
+			
+			HttpResponse<String> response;
+			response = client.send(request, BodyHandlers.ofString());
+			
+			return response.body();
+		} catch (IOException | InterruptedException e) {	
+			throw new TrataExecoes("Algo De Errado Não Está Certo" , e);									
+		} 		
+	}
+}
+```
 
-Conteudo
+Na parte do extrator de contéudo eu fiz um pouco diferente. Criei uma unica classe com 
+todos os métodos de extração dentro. A classe é **Extratores**, e como exemplo de método 
+temos os:
 
-Alterar o gerar figurinha para aqueles que não possuem foto.
+Essa primeira classe trata a extração de informação quando é passado uma **String**. 
+E a que foi desenvolvida em aula, eu adaptei um pouco, veja que **conteudo** recebe 
+um parametro a mais.
+
+```java
+public List<Conteudo> extraiConteudosNasa(String json){
+		
+		JsonParser parser = new JsonParser();
+		List<Map<String, String>> listaDeAtributos = parser.parse(json);
+		
+		List<Conteudo> conteudos = new ArrayList<>();
+		
+		for(Map<String, String> atributos : listaDeAtributos) {
+			String titulo = atributos.get("title");
+			String urlImage = atributos.get("url");
+			
+			Conteudo conteudo = new Conteudo(titulo, urlImage, "0.0");
+			
+			conteudos.add(conteudo);
+		}
+		
+		return conteudos;
+		
+	}
+```
+
+Para o meu caso, criei uma classe com o mesmo nome, porem recebendo um **object**
+
+```java
+public List<Conteudo> extraiConteudosNasa(Object json){
+		
+		JSONArray jsonArray = (JSONArray) json;	
+		
+		List<Conteudo> conteudos = new ArrayList<>();
+		
+		jsonArray.forEach((elemento) -> {
+			JSONObject conteudo = (JSONObject) elemento;
+			conteudos.add(
+					new Conteudo(conteudo.get("title").toString(), 
+							     conteudo.get("url").toString(), 
+							     "9.0")
+					);
+			
+		});
+		
+		return conteudos;
+		
+	}
+```
+
+Por fim, mas não menos importante. Criamos uma classe **Conteudo** representando o objeto 
+em que estamos trabalhando
+
+**NOTA: ** Veja que não temos uma classe mas, sim **record**. Isso porque documentei 
+após a execução dos desafios. 
+
+```java
+public record Conteudo(
+		
+		String titulo,
+		String urlImagem,
+		String voto
+	) {}
+```
 
 <details>
 <summary><h2> Desafios aula 03 </h2></summary>
@@ -452,7 +677,7 @@ String voto = conteudo.voto();
 <img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
 
-riar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP
+Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP
 
 **SOLUÇÃO**
 
@@ -482,8 +707,8 @@ public class TrataExecoes extends RuntimeException{
 
 E a usei no `catch` da classe **ClienteHttp**
 ```java
-} catch (IOException | InterruptedException e) {	
-	throw new TrataExecoes("Algo De Errado Não Está Certo" , e);									
+} catch (IOException | InterruptedException e) {
+	throw new TrataExecoes("Algo De Errado Não Está Certo" , e);
 } 	
 ```
 

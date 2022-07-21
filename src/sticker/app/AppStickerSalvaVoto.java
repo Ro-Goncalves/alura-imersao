@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import sticker.common.util.UtilJson;
 
-public class AppSalvaVoto {
+public class AppStickerSalvaVoto {
 	public static void main(String[] args) {
 		UtilJson json = new UtilJson();
 		Scanner s = new Scanner(System.in);

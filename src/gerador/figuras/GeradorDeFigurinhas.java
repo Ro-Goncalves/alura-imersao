@@ -50,7 +50,7 @@ public class GeradorDeFigurinhas {
 			FontRenderContext fontRenderContext = graphics.getFontRenderContext();
 			Font font = new Font(Font.SANS_SERIF, Font.BOLD, 60);
 			
-			var textLayout = new TextLayout(textoImagem, font, fontRenderContext);
+			TextLayout textLayout = new TextLayout(textoImagem, font, fontRenderContext);
 
 			Shape outline = textLayout.getOutline(null);			
 			AffineTransform transform = graphics.getTransform();
@@ -59,7 +59,7 @@ public class GeradorDeFigurinhas {
 			transform.translate(xInicial, novaAltura - 150);
 			graphics.setTransform(transform);
 
-			var outlineStroke = new BasicStroke(largura * 0.004166f);
+			BasicStroke outlineStroke = new BasicStroke(largura * 0.004166f);
 			graphics.setStroke(outlineStroke);
 
 			graphics.setColor(Color.DARK_GRAY);
