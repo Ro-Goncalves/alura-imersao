@@ -78,7 +78,7 @@ O tratamento do retorno foi realizado em um desafio, irei descrevê-lo lá.
 <summary><h3> Desafio 01 </h3></summary>
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=NÃO%20INICIADO&color=RED&style=for-the-badge"/>
+<img src="https://img.shields.io/badge/ESTATUS-N%C3%83O%20INICIADO-red"/>
 </p>
 
 Consumir o endpoint de filmes mais populares da API do IMDB. Procure também, na 
@@ -279,7 +279,7 @@ public JSONArray getArquivoJson(String arquivo) {
 <summary><h3> Desafio 05 </h3></summary>
 
 <p align="center">
-<img src="http://img.shields.io/static/v1?label=STATUS&message=NÃO%20INICIADO&color=RED&style=for-the-badge"/>
+<img src="http://img.shields.io/static/v1?label=STATUS&message=NAO%20INICIADO&color=RED&style=for-the-badge"/>
 </p>
 
 
