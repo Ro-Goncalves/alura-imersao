@@ -407,9 +407,12 @@ Conteudo
 
 Alterar o gerar figurinha para aqueles que não possuem foto.
 
-## Desafios aula 03
+<details>
+<summary><h2> Desafios aula 03 </h2></summary>
 
-### Desafio 01
+<details>
+<summary><h3> Desafio 01 </h3></summary>
+
 Transformar a classe que representa os conteúdos em um Record, disponível a partir 
 do Java 16
 
@@ -437,10 +440,11 @@ String nomeArquivo = conteudo.titulo().replace(":", " -");
 String voto = conteudo.voto();
 ```
 
-**DESAFIO CONCLUÍDO COM SUCESSO**
+</details>
+<details>
+<summary><h3> Desafio 02 </h3></summary>
 
-### Desafio 02
-Criar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP
+riar as suas próprias exceções e usá-las na classe que implementa o cliente HTTP
 
 **SOLUÇÃO**
 
@@ -475,9 +479,10 @@ E a usei no `catch` da classe **ClienteHttp**
 } 	
 ```
 
-**DESAFIO CONCLUÍDO COM SUCESSO**
+</details>
+<details>
+<summary><h3> Desafio 03 </h3></summary>
 
-### Desafio 03
 Usar recursos do Java 8 e posterior, como Streams e Lambdas, para mapear uma lista 
 em uma outra
 
@@ -509,9 +514,15 @@ public List<Conteudo> extraiConteudosNasa(Object json){
 	}
 ```
 
-**DESAFIO CONCLUÍDO COM SUCESSO**
+</details>
+<details>
+<summary>
+<h3> Desafio 04 </h3>
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
+</p>
+</summary>
 
-### Desafio 04
 Criar uma Enum que une, como configurações, a URL da API e o extrator utilizado
 
 **SOLUÇÃO**
@@ -543,11 +554,13 @@ String arquivosJson = ArquivosJson.THE_MOVIE_DB.getNomeArquivo();
 Object json = utilJson.getArquivoJson(arquivosJson);
 ```
 
-**DESAFIO CONCLUÍDO COM SUCESSO**
+</details>
+<details>
+<summary><h3> Desafio 05 </h3></summary>
 
-### Desafio 05
 Desafio supremo: consumir outras APIs que contém imagens, como a da Marvel, que é 
 bem diferente. Repositório com APIs públicas: [clique aqui](https://github.com/public-apis/public-apis).
 
-<details>
+</details>
+</details>
 
