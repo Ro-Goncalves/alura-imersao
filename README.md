@@ -816,10 +816,10 @@ Para criar um projeto, podemos ir em [start spring io](https://start.spring.io/)
 Banco de dados utilizado, mogo DB
 
 <details>
-<summary><h1> Desafios aula 04 </h1></summary>
+<summary><h2> Desafios aula 04 </h2></summary>
 
 <details>
-<summary><h1> Desafio 01 </h1></summary>
+<summary><h3> Desafio 01 </h3></summary>
 
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
@@ -887,7 +887,7 @@ https://www.sourcecodeexamples.net/2019/10/putmapping-spring-boot-example.html
 
 </details>
 <details>
-<summary><h1> Desafio 02 </h1></summary>
+<summary><h3> Desafio 02 </h3></summary>
 
 Devolver a listagem ordenada pelo ranking.
 
@@ -908,7 +908,7 @@ Demorou mais saiu. meio que simples até. Solução encontrada no [link](https:/
 
 </details>
 <details>
-<summary><h1> Desafio 03 </h1></summary>
+<summary><h3> Desafio 03 </h3></summary>
 
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
@@ -935,7 +935,7 @@ Não sei ao certo se era isso. Utilizei: [link](https://stackoverflow.com/questi
 
 </details>
 <details>
-<summary><h1> Desafio 04 </h1></summary>
+<summary><h3> Desafio 04 </h3></summary>
 
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
@@ -959,7 +959,7 @@ utilizado para a solução.
 
 </details>
 <details>
-<summary><h1> Desafio 05 </h1></summary>
+<summary><h3> Desafio 05 </h3></summary>
 
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
@@ -983,7 +983,6 @@ A documentação pode ser encontrada [Aqui](https://www.sourcecodeexamples.net/2
 		return linguagemAtualizada;		
 	}
 ```
-</details>
 </details>
 </details>
 
