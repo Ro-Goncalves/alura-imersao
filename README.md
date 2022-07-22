@@ -531,7 +531,6 @@ Desafio supremo usar alguma biblioteca de manipulação de imagens como OpenCV p
 extrair imagem principal e contorná-la.
 
 </details>
-
 </details>
 </details>
 
@@ -801,6 +800,7 @@ Object json = utilJson.getArquivoJson(arquivosJson);
 Desafio supremo: consumir outras APIs que contém imagens, como a da Marvel, que é 
 bem diferente. Repositório com APIs públicas: [clique aqui](https://github.com/public-apis/public-apis).
 
+</details>
 </details>
 </details>
 
