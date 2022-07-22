@@ -994,4 +994,84 @@ A documentação pode ser encontrada [Aqui](https://www.sourcecodeexamples.net/2
 ```
 </details>
 </details>
+</details>
 
+<details>
+<summary><h1> Aula 05 </h1></summary>
+
+O objetivo dessa aula foi muito simples, colocar nossa aplicação para roda na cloud, 
+para tal utilizamos o [HEROKU](https://www.heroku.com/)
+
+<details>
+<summary><h2> Desafios aula 05 </h2></summary>
+
+
+<details>
+<summary><h3> Desafio 01 </h3></summary>
+
+Compartilhe com seus amigos a sua URL do Heroku, para que eles possam consumir a sua 
+API (com o padrão de atributos title e image) e gerar figurinhas do conteúdo que você
+utilizou (linguagens de programação, filmes, músicas).
+
+</details>
+
+<details>
+<summary><h3> Desafio 02 </h3></summary>
+
+Colocar a aplicação no cloud da Oracle;
+
+Link que pode ajudar
+
+https://medium.com/danieldiasjava/executando-sua-aplica%C3%A7%C3%A3o-java-na-oracle-cloud-infrastructure-d8ce55e74d61
+
+</details>
+
+<details>
+<summary><h3> Desafio 03 </h3></summary>
+
+Implementar algum mecanismo de votação na API, para que outros amigos votem nas linguagens 
+preferidas para que se possa fazer um ranking.
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
+</p>
+
+**SOLUÇÃO**
+
+Quero aproveitar o que já foi realizado. Dito isso. Criei o *record Voto*
+```java
+record Voto (
+	String id,
+	String voto
+) {}
+```
+
+E uma url com um método post.
+```java
+@PostMapping("/linguagem-repositorio/votar")
+	public ResponseEntity<Linguagem> cadastrarVoto(@RequestBody Voto voto){
+		Voto cadastarVoto = new Voto(voto.id(), voto.voto());
+		
+		Linguagem linguagemEscolhida = repositorio.findById(cadastarVoto.id()).get();
+		
+		String votacaoAtual = linguagemEscolhida.getRanking();
+		int votacaoNova = Integer.parseInt(votacaoAtual) + Integer.parseInt(cadastarVoto.voto());		
+		linguagemEscolhida.setRanking("" + votacaoNova);
+		
+		return ResponseEntity.status(200).body(repositorio.save(linguagemEscolhida));
+	}
+```
+
+</details>
+
+<details>
+<summary><h3> Desafio 04 </h3></summary>
+
+Desafio supremo: Evoluir o projeto das três primeiras aula para que ele gere um bundle de stickers, 
+para que se possa fazer o download e já incluir vários stickers no WhatsApp; Usar os conhecimentos 
+aprendidos em alguma imersão React da Alura e fazer uma aplicação front-end para gerar esse bundle, 
+onde possa se passar a URL do conteúdo e já visualizar os stickers;
+
+</details>
+</details>
+</details>
