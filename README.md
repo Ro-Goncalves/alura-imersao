@@ -804,3 +804,186 @@ bem diferente. Repositório com APIs públicas: [clique aqui](https://github.com
 </details>
 </details>
 
+<details>
+<summary><h1> Aula 04 </h1></summary>
+
+Criar uma api.
+
+Tecnologia utilizada, [spring](https://spring.io/).
+
+Para criar um projeto, podemos ir em [start spring io](https://start.spring.io/)
+
+Banco de dados utilizado, mogo DB
+
+<details>
+<summary><h1> Desafios aula 04 </h1></summary>
+
+<details>
+<summary><h1> Desafio 01 </h1></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
+</p>
+
+Finalizar o CRUD (Create, Read, Update e Delete) para que se possa atualizar e excluir uma linguagem cadastrada.
+
+**SOLUÇÃO**
+
+Esse [link](
+https://www.geeksforgeeks.org/spring-boot-mongorepository-with-example/) pode ser usado 
+como referência. 
+
+**Create**
+
+Esse já foi feito em aula
+```java
+@PostMapping("/linguagens-repositorio")
+	public Linguagem cadastrarLinguagem(@RequestBody Linguagem linguagem) {
+		Linguagem linguagemSalva = repositorio.save(linguagem);
+		
+		return linguagemSalva;
+	}
+```
+
+**Read**
+
+Acho que era para fazer uma busca por ID. Segue a solução
+```java
+@GetMapping("/linguagens-repositorio/{id}")
+	public Linguagem obterLinguagemRepositorio(@PathVariable String id) {
+		Optional<Linguagem> linguagemConsultada = repositorio.findById(id);
+		
+		return linguagemConsultada.get();		
+	}
+```
+
+**Delete**
+```java
+@DeleteMapping("/linguagens-repositorio/{id}")
+    public String deleteBook(@PathVariable String id){
+		repositorio.deleteById(id);
+        
+        return "Deletado Com Sucesso";
+    }
+```
+
+**Update**
+https://www.sourcecodeexamples.net/2019/10/putmapping-spring-boot-example.html
+
+```java
+@PutMapping("/linguagens-repositorio/{id}")
+	public Linguagem atualizarLinguagem(@PathVariable(value = "id") String id, @RequestBody Linguagem linguagem) {
+		Linguagem linguagemNova = repositorio.findById(id).get();
+		
+		linguagemNova.setTitle(linguagem.getTitle());
+		linguagemNova.setImage(linguagem.getImage());		
+		linguagemNova.setRanking(linguagem.getRanking());	     
+	     
+	     final Linguagem linguagemAtualizada = repositorio.save(linguagemNova);
+	     return linguagemAtualizada;
+	}
+```
+
+
+</details>
+<details>
+<summary><h1> Desafio 02 </h1></summary>
+
+Devolver a listagem ordenada pelo ranking.
+
+**SOLUÇÃO**
+
+Demorou mais saiu. meio que simples até. Solução encontrada no [link](https://stackoverflow.com/questions/2839137/how-to-use-comparator-in-java-to-sort)
+
+```java
+@GetMapping("/linguagens-repositorio")
+	public List<Linguagem> obterLinguagensRepositorio(){	
+		
+		List<Linguagem> linguagensRepositorio = this.repositorio.findAll();
+		Collections.sort(linguagensRepositorio, (a, b) -> a.getRanking().compareTo(b.getRanking()));
+		
+		return linguagensRepositorio;
+	}
+```
+
+</details>
+<details>
+<summary><h1> Desafio 03 </h1></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
+</p>
+
+Criar na sua API um modelo de entidade com nomes diferentes de title e image e criar seu próprio 
+extrator de informações personalizado OU, manter com o nome title e image e traduzir para que seja 
+retornado como título e imagem através do uso de DTO (Data Transfer Object).
+
+**SOLUÇÃO**
+
+Não sei ao certo se era isso. Utilizei: [link](https://stackoverflow.com/questions/47886322/dto-conveter-pattern-in-spring-boot)
+
+```java
+@PostMapping("/linguagens-repositorio")
+	public ResponseEntity<Linguagem> cadastrarLinguagem(@RequestBody PostDto postDto) {
+		Linguagem linguagem = new Linguagem(postDto.titulo(), postDto.imagem(), postDto.rank());
+		
+		Linguagem linguagemSalva = repositorio.save(linguagem);
+		
+		return ResponseEntity.status(201).body(linguagemSalva);
+	}
+```
+
+</details>
+<details>
+<summary><h1> Desafio 04 </h1></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
+</p>
+
+Retornar o status 201 quando um recurso (linguagem, no nosso caso) for cadastrado através do POST;
+
+**SOLUÇÃO**
+
+[Material](https://www.javaguides.net/2018/11/spring-getmapping-postmapping-putmapping-deletemapping-patchmapping.html) 
+utilizado para a solução.
+
+```java
+@PostMapping("/linguagens-repositorio")
+	public ResponseEntity<Linguagem> cadastrarLinguagem(@RequestBody Linguagem linguagem) {
+		Linguagem linguagemSalva = repositorio.save(linguagem);
+		
+		return ResponseEntity.status(201).body(linguagemSalva);
+	}
+```
+
+</details>
+<details>
+<summary><h1> Desafio 05 </h1></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
+</p>
+
+Desafio supremo: Aplicar modificações parciais no recurso através do método PATCH, por exemplo, 
+modificando o número de votos ou de pessoas que utilizam cada linguagem de programação.
+
+**SOLUÇÃO**
+
+A documentação pode ser encontrada [Aqui](https://www.sourcecodeexamples.net/2019/10/patchmapping-spring-boot-example.html)
+
+```java
+@PatchMapping("/linguagens-repositorio/{id}/{ranking}")
+	public Linguagem atualizarRankingLinguagem(@PathVariable String id, @PathVariable String ranking) {		
+		Linguagem linguagem = repositorio.findById(id).get();
+		linguagem.setRanking(ranking);
+		
+		Linguagem linguagemAtualizada = repositorio.save(linguagem);
+		
+		return linguagemAtualizada;		
+	}
+```
+</details>
+</details>
+</details>
+

@@ -30,6 +30,7 @@ public class Extratores {
 		return conteudos;
 		
 	}
+	
 	public List<Conteudo> extraiConteudosNasa(Object json){
 		
 		JSONArray jsonArray = (JSONArray) json;	
@@ -79,8 +80,9 @@ public class Extratores {
 		for(Map<String, String> atributos : listaDeAtributos) {
 			String titulo = atributos.get("title");
 			String urlImage = atributos.get("image");
+			String ranking = atributos.get("ranking");
 			
-			Conteudo conteudo = new Conteudo(titulo, urlImage, "0.0");
+			Conteudo conteudo = new Conteudo(titulo, urlImage, ranking);
 			
 			conteudos.add(conteudo);
 		}
