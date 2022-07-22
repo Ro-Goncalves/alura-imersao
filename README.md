@@ -10,8 +10,15 @@ estou entre esses dois, e, como parte da minha contribuição, irei descrever, c
 que sei, como eu passei pelos desafios. 
 
 **IMPORTATE!!**
+
 As descrições de como resolvi os desafios podem estar diferentes dos código que estão 
 nos fontes do projeto, pois com o caminhar das aulas o código será refatorado. 
+
+**NOTA**
+
+Os fonta da aula 04 podem ser encontratos em:
+
+[FONTES DA API](https://github.com/Ro-Goncalves/alura-imersao)
 
 Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 
@@ -40,6 +47,7 @@ URI uriClient = URI.create(url);
 ```
 
 **URIS SUJERIDAS**
+
 * https://api.mocki.io/v2/549a5d8b/Top250Movies - Criada por alguns de nossos amigos, 
 não me recordo quem.
 * https://imdb-api.com/en/API/Top250Movies/ - imdb api top 250 movies, é necessário 
@@ -868,7 +876,8 @@ Acho que era para fazer uma busca por ID. Segue a solução
 ```
 
 **Update**
-https://www.sourcecodeexamples.net/2019/10/putmapping-spring-boot-example.html
+
+Utilizar como [referência](https://www.sourcecodeexamples.net/2019/10/putmapping-spring-boot-example.html).
 
 ```java
 @PutMapping("/linguagens-repositorio/{id}")
