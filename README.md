@@ -16,9 +16,7 @@ nos fontes do projeto, pois com o caminhar das aulas o código será refatorado.
 
 **NOTA**
 
-Os fonta da aula 04 podem ser encontratos em:
-
-[FONTES DA API](https://github.com/Ro-Goncalves/alura-imersao)
+Os fontes da aula 04/05 podem ser encontratos em: [FONTES DA API](https://github.com/Ro-Goncalves/alura-imersao)
 
 Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 
@@ -29,8 +27,8 @@ Espero poder contribuir com aqueles que estão nessa jornada assim como eu.
 <details>
 <summary><h1> Aula 01 </h1></summary>
 
-Tudo começa com a consulta em uma API de filmes, a selecionada foi **imdb**, e como ela 
-esperado ela cai, com isso utilizamos a **themoviedb**, e alguns colegas disponibilizaram 
+Tudo começa com a consulta em uma API de filmes, a selecionada foi **imdb**, e como era 
+esperado ela caiu, com isso utilizamos a **themoviedb**, e alguns colegas disponibilizaram 
 outras. 
 
 Eu tive que utilizar um arquivo estático; estou acompanhando a imersão na empresa e 
@@ -39,7 +37,7 @@ meu **eclipse** não quer me ajudar, e não quero perder tempo arrumando o probl
 Dito isso, vamos ao que interessa. A Chamada via API pode ser vista no arquivo **AppStickerFromApi**.
 Realizar a chama é relativamente simples:
 
-Iniciamos criando a *URI* que iremos utilizar
+Iniciamos criando a **URI** que iremos utilizar
 
 ```java
 String url = "https://api.mocki.io/v2/549a5d8b/Top250Movies";
@@ -55,7 +53,7 @@ criar uma conta e gerar uma *api key*.
 * https://api.themoviedb.org/3/tv/top_rated - themoviedb top rated, é necessário criar 
 uma conta e gerar uma *api key*.
 
-Agora criamos um *client* que irá chamar essa *URI*
+Agora criamos um **client** que irá chamar essa **URI**
 ```java
 HttpClient client = HttpClient.newHttpClient();
 ```
@@ -172,7 +170,7 @@ themoviedb_key = minha-chave-linda-dois
 ```
 
 A classe a baixo abre o arquivo, itera sobre ele pegando todas as entradas e retorna 
-um `Map` com as chaves que coloquei no arquivo.
+um **Map** com as chaves que coloquei no arquivo.
 
 ```java
 private Map<String, String> getParametrosIntegracao(String nomeArquivoParam) throws Exception {
@@ -196,7 +194,7 @@ private Map<String, String> getParametrosIntegracao(String nomeArquivoParam) thr
 	}
 ```
 
-Existe uma outra classe nesse arquivo que busca por uma *api key* especifica
+Existe uma outra classe nesse arquivo que busca por uma **api key** especifica
 
 ```java
 public void setApiKey(String apiKey) {
@@ -242,7 +240,7 @@ Mudar o JsonParser para usar uma biblioteca de parsing de JSON como Jackson ou G
  
 **SOLUÇÃO**
 
-Usei outra biblioteca a *simple parser*
+Usei outra biblioteca a **simple parser**
 
 [Exemplo de utilização da biblioteca](https://www.geeksforgeeks.org/parse-json-java/)
 
@@ -353,6 +351,11 @@ public void salvarVoto(String Usuario, String title, String rating) {
 
 <details>
 <summary><h1> Aula 02 </h1></summary>
+
+Nessa aula criamos a classe que irá gerar nossa figurinhas. Alguns dos colegas conseguiram 
+fazer coisas incríveis. Eu consegui chegar ao seguinte resultado:
+
+![assets](assets/sticker.png)
 
 <details>
 <summary><h2> Desafios aula 02 </h2></summary>
@@ -999,24 +1002,36 @@ A documentação pode ser encontrada [Aqui](https://www.sourcecodeexamples.net/2
 <details>
 <summary><h1> Aula 05 </h1></summary>
 
-O objetivo dessa aula foi muito simples, colocar nossa aplicação para roda na cloud, 
-para tal utilizamos o [HEROKU](https://www.heroku.com/)
+Nessa aula subimos a aplicação para que ele roda-se e cloud, para isso utilizamos o 
+[HEROKU](https://www.heroku.com/). Tive uma pouco de dificuldade. Consegui colocar a 
+aplicação no ar assintindo ao [vídeo](https://www.youtube.com/watch?v=KD9OaryS1Kw)
 
 <details>
 <summary><h2> Desafios aula 05 </h2></summary>
 
-
 <details>
 <summary><h3> Desafio 01 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
+</p>
 
 Compartilhe com seus amigos a sua URL do Heroku, para que eles possam consumir a sua 
 API (com o padrão de atributos title e image) e gerar figurinhas do conteúdo que você
 utilizou (linguagens de programação, filmes, músicas).
 
+**SOLUÇÃO**
+
+A documentação da API pode ser encontrada no [repositório](https://github.com/Ro-Goncalves/linguagem-api)
+
 </details>
 
 <details>
 <summary><h3> Desafio 02 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
 
 Colocar a aplicação no cloud da Oracle;
 
@@ -1066,6 +1081,10 @@ E uma url com um método post.
 
 <details>
 <summary><h3> Desafio 04 </h3></summary>
+
+<p align="center">
+<img src="https://img.shields.io/static/v1?label=ESTATUS&message=N%C3%83O%20INICIADO&color=red&style=for-the-badge"/>
+</p>
 
 Desafio supremo: Evoluir o projeto das três primeiras aula para que ele gere um bundle de stickers, 
 para que se possa fazer o download e já incluir vários stickers no WhatsApp; Usar os conhecimentos 
