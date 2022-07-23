@@ -1044,12 +1044,13 @@ https://medium.com/danieldiasjava/executando-sua-aplica%C3%A7%C3%A3o-java-na-ora
 <details>
 <summary><h3> Desafio 03 </h3></summary>
 
-Implementar algum mecanismo de votação na API, para que outros amigos votem nas linguagens 
-preferidas para que se possa fazer um ranking.
-
 <p align="center">
 <img src="https://img.shields.io/static/v1?label=ESTATUS&message=FINALIZADO&color=sucess&style=for-the-badge"/>
 </p>
+
+Implementar algum mecanismo de votação na API, para que outros amigos votem nas linguagens 
+preferidas para que se possa fazer um ranking.
+
 
 **SOLUÇÃO**
 
